@@ -1,5 +1,4 @@
 <?php
-// Data siswa dan nilai mereka
 $daftarNilai = [
     'Alice' => 85,
     'Bob' => 92,

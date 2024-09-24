@@ -30,6 +30,7 @@
     </style>
 </head>
 <body>
+    <h2>Informasi Dosen</h2>
     <?php
     $Dosen = [
         'nama' => 'Elok Nur Hamdana',

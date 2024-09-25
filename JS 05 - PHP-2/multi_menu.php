@@ -38,6 +38,12 @@ function tampilkanMenuBertingkat(array $menu) {
         // Tampilkan nama item
         echo "<li>{$item['nama']}";
         
+        // Jika item memiliki subMenu, panggil fungsi ini lagi (rekursif)
+        if (isset($item['subMenu'])) {
+            tampilkanMenuBertingkat($item['subMenu']);
+        }
+        
+        echo "</li>";
     }
     echo "</ul>";
 }

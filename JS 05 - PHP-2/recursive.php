@@ -4,8 +4,7 @@ function tampilkanAngka(int $jumlah, int $indeks = 1) {
     
     // Melakukan perulangan dari 1 hingga 25
     for ($i = 1; $i <= 25; $i++) {
-        echo "Perulangan ke-{$i} <br>";
-
+        echo "Angka ke-{$i} <br>";
     }
     
     // Memanggil diri sendiri selama $indeks < $jumlah

@@ -1,4 +1,3 @@
-<!DOCTYPE
 $umur;
 if (isset($umur) && $umur >= 18) {
     echo "Anda sudah dewasa.";

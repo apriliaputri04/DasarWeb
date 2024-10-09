@@ -17,14 +17,9 @@
         <span id="email-error" style="color: red;"></span>
         <br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <span id="password-error" style="color: red;"></span>
-        <br><br>
 
         <input type="submit" value="Submit">
     </form>
-
     <div id="hasil"></div>
 
     <script>
@@ -53,13 +48,6 @@
                     $("#email-error").text("");
                 }
 
-                // Validasi password
-                if (password.length < 8) {
-                    $("#password-error").text("Password harus minimal 8 karakter.");
-                    valid = false;
-                } else {
-                    $("#password-error").text("");
-                }
 
                 // Jika validasi berhasil, kirim data menggunakan AJAX
                 if (valid) {

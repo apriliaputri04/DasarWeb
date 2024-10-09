@@ -6,8 +6,8 @@
 <body>
     <h2>Form Input</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="input">Input:</label>
-        <input type="text" name="input" id="input" required>
+        <label for="nama">Input:</label>
+        <input type="text" name="nama" id="nama" required>
         <br><br>
         
         <label for="email">Email:</label>

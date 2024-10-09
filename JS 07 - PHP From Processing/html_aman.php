@@ -21,7 +21,7 @@
     // Cek apakah form sudah disubmit
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Ambil dan sanitasi input
-        $input = $_POST['input'];
+        $input = $_POST['nama'];
         $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
         
         // Tampilkan hasil input yang sudah disanitasi

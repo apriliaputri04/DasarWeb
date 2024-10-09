@@ -6,7 +6,7 @@
 <body>
     <h2>Form Input</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="nama">Input:</label>
+        <label for="nama">Nama:</label>
         <input type="text" name="nama" id="nama" required>
         <br><br>
         
@@ -20,13 +20,11 @@
     <?php
     // Cek apakah form sudah disubmit
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Ambil dan sanitasi input
-        $input = $_POST['nama'];
-        $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+        $nama = $_POST['nama'];
+        $nama = htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
         
-        // Tampilkan hasil input yang sudah disanitasi
-        echo "<h3>Input yang diterima:</h3>";
-        echo $input;
+        echo "<h3>Nama yang diterima:</h3>";
+        echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
         
         // Memeriksa apakah input adalah email yang valid
         $email = $_POST['email'];

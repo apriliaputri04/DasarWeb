@@ -1,43 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Form Input</title>
-</head>
-<body>
-    <h2>Form Input</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="nama">Nama:</label>
-        <input type="text" name="nama" id="nama" required>
-        <br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br><br>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Input Aman</title>
+    </head>
+    <body>
+        <h2>Input Aman</h2>
+        <form action="html_aman.php" method="post">
+            <label for="input">Masukkan data :</label><br>
+            <input type="text" id="input" name="input"><br><br>
+            <input type="submit" value="Submit">
+        </form>
 
-        <input type="submit" name="submit" value="Submit">
-    </form>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $input = $_POST['input'];
 
-    <?php
-    // Cek apakah form sudah disubmit
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nama = $_POST['nama'];
-        $nama = htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
-        
-        echo "<h3>Nama yang diterima:</h3>";
-        echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8');
-        
-        // Memeriksa apakah input adalah email yang valid
-        $email = $_POST['email'];
-        
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Lanjutkan dengan pengolahan email yang aman
-            echo "<h3>Email yang diterima:</h3>";
-            echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
-        } else {
-            // Tangani input yang tidak valid
-            echo "<h3>Email tidak valid!</h3>";
+            //sanitasi input untuk mencegah XSS
+            $input = htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+
+            //validasi sederhana : pastikan input tidak kosong
+            if (!empty($input)) {
+                echo "<p>Data yang dimasukkan : " . $input . "</p>";
+            } else {
+                echo "<p>Input tidak boleh kosong!</p>";
+            }
         }
-    }
-    ?>
-</body>
+        ?>
+    </body>
 </html>
+    

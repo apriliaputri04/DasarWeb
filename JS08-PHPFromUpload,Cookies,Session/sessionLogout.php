@@ -1,6 +1,6 @@
 <?php
     session_start();
-    session_destroy();
+    session_distroy();
 
     echo "Anda berhasil logout";
 ?>

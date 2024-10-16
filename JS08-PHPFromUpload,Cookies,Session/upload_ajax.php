@@ -39,4 +39,3 @@ if (isset($_FILES['file'])) {
         echo implode("<br>", $errors);
     }
 }
-?>

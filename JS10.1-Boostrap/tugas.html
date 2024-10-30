@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Bootstrap Statis</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">APRILIA PUTRI ANGGRAENI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Selamat Datang!</h1>
+        <p class="lead">Bootstrap adalah cara mudah untuk membuat halaman responsif.</p>
+        <a href="#" class="btn btn-primary btn-lg">Jelajahi</a>
+    </div>
+
+    <!-- Image Section -->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="lucu1.jpg" class="img-fluid rounded mb-4" alt="Image 1">
+            </div>
+            <div class="col-md-4">
+                <img src="lucu2.jpg" class="img-fluid rounded mb-4" alt="Image 2">
+            </div>
+            <div class="col-md-4">
+                <img src="lucu3.jpg" class="img-fluid rounded mb-4" alt="Image 3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Accordion Section for Additional Info -->
+    <div class="container mt-5">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Apa itu Bootstrap?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                    <div class="card-body">
+                        Bootstrap adalah framework front-end untuk memudahkan desain responsif dengan CSS dan JS.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Mengapa menggunakan Bootstrap?
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        Bootstrap menyediakan komponen siap pakai yang memudahkan pembuatan antarmuka dengan cepat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; 2024 Aprilia Putri Anggraeni | Politeknik Negeri Malang</p>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

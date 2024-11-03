@@ -61,47 +61,6 @@ include 'auth.php';
                 </button>
             </div>
         </form>
-
-        <hr>
-
-        <!-- Form Kedua (Duplikat yang ingin ditambahkan) -->
-        <form method="post" class="form-data" id="form-data-duplicate">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="hidden" name="id" id="id-duplicate">
-                        <input type="text" name="nama" id="nama-duplicate" class="form-control" required="true">
-                        <p class="text-danger" id="err_nama_duplicate"></p>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>Jenis Kelamin</label><br>
-                        <input type="radio" name="jenis_kelamin" id="jenkel1" value="L" required="true"> Laki-laki
-                        <input type="radio" name="jenis_kelamin" id="jenkel2" value="P"> Perempuan
-                        <p class="text-danger" id="err_jenis_kelamin_duplicate"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Alamat</label>
-                <textarea name="alamat" id="alamat-duplicate" class="form-control" required="true"></textarea>
-                <p class="text-danger" id="err_alamat_duplicate"></p>
-            </div>
-            <div class="form-group">
-                <label>No Telepon</label>
-                <input type="number" name="no_telp" id="no_telp-duplicate" class="form-control" required="true">
-                <p class="text-danger" id="err_no_telp_duplicate"></p>
-            </div>
-            <div class="form-group">
-                <button type="button" name="simpan" id="simpan-duplicate" class="btn btn-primary">
-                    <i class="fa fa-save"></i> Simpan
-                </button>
-            </div>
-        </form>
-        
-        <hr>
         <div class="data"></div>
     </div>
     <!-- jQuery and JavaScript dependencies -->

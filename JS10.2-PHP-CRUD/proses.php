@@ -29,20 +29,26 @@ if ($aksi == 'tambah') {
         echo "ID tidak valid.";
     }
 } elseif ($aksi == 'hapus') {
-    if (isset($_GET['id']) && is_numeric($_GET['id'])) { // Pastikan ID valid dan numerik
+    if (isset($_GET['id'])) {
         $id = $_GET['id'];
+
         $query = "DELETE FROM anggota WHERE id = $id";
+
         if (mysqli_query($koneksi, $query)) {
             header("Location: index.php");
             exit();
         } else {
             echo "Gagal menghapus data: " . mysqli_error($koneksi);
+            exit();
         }
     } else {
         echo "ID tidak valid.";
     }
 } else {
     header("Location: index.php");
-    exit();
 }
+
+mysqli_close($koneksi);
+
+
 mysqli_close($koneksi);

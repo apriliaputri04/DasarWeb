@@ -9,7 +9,7 @@
                 <h1 class="h2">Anggota</h1>
             </div>
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                         <i class="fa fa-plus"></i> Tambah Anggota</button>
                 </div>
@@ -26,25 +26,27 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Anggota</th>
-                            <th scope="col">Keterangan</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Username</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        $query = "SELECT * FROM Anggota order by id desc";
+                        $query = "SELECT * FROM anggota a, jabatan j, user u WHERE a.jabatan_id = j.id AND a.user_id = u.id order by a.id desc";
                         $result = mysqli_query($koneksi, $query);
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                             <tr>
                                 <th scope="row"><?= $no++; ?></th>
-                                <td><?= $row['Anggota']; ?></td>
-                                <td><?= $row['keterangan']; ?></td>
+                                <td><?= $row['nama']; ?></td>
+                                <td><?= $row['jabatan']; ?></td>
+                                <td><?= $row['username']; ?></td>
                                 <td>
-                                    <a href="index.php?page=Anggota/edit&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                    <a href="fungsi/hapus.php?Anggota=hapus&id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('Hapus Data Jabatan ?');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a>
+                                    <a href="index.php?page=anggota/edit&id=<?php echo $row['user_id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="fungsi/hapus.php?anggota=hapus&id=<?php echo $row['user_id']; ?>" onclick="javascript:return confirm('Hapus Data Jabatan ?');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a>
                                 </td>
                             </tr>
                         <?php
@@ -58,18 +60,66 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Jabatan</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Anggota</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="fungsi/tambah.php?Anggota=tambah" method="POST">
+                        <form action="fungsi/tambah.php?anggota=tambah" method="POST">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Nama Jabatan:</label>
-                                    <input type="text" name="Anggota" class="form-control" id="recipient-name">
+                                    <label for="recipient-name" class="col-form-label">Nama:</label>
+                                    <input type="text" name="nama" class="form-control" id="recipient-name">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Keterangan:</label>
-                                    <textarea class="form-control" name="keterangan" id="message-text"></textarea>
+                                    <label for="recipient-name" class="col-form-label">Jabatan:</label>
+                                    <select class="form-select" name="jabatan" name aria-label="Default select example">
+                                        <option selected>Pilih Jabatan</option>
+                                        <?php
+                                        $query2 = "SELECT * FROM jabatan order by jabatan asc";
+                                        $result2 = mysqli_query($koneksi, $query2);
+                                        while ($row2 = mysqli_fetch_assoc($result2)) {
+                                        ?>
+                                            <option value="<?= $row2['id']; ?>"><?= $row2['jabatan']; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Jenis Kelamin:</label>
+                                    <br>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" value="L" checked>
+                                        <label class="form-check-label" for="inlineRadio1">Laki-Laki</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="jenis_kelamin" value="P">
+                                        <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Alamat:</label>
+                                    <textarea class="form-control" name="alamat" id="message-text"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">No Telepon:</label>
+                                    <input type="number" name="no_telp" class="form-control" id="recipient-name">
+                                </div>
+                                <hr class="border border-primary border-3 opacity-75">
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Username:</label>
+                                    <input type="text" name="username" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Password:</label>
+                                    <input type="password" name="password" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Level:</label>
+                                    <select class="form-select" name="level" name aria-label="Default select example">
+                                        <option selected>Pilih Level</option>
+                                        <option value="user">User</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="modal-footer">

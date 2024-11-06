@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Jabatan</th>
+                            <th scope="col">Anggota</th>
                             <th scope="col">Keterangan</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -34,17 +34,17 @@
                     <tbody>
                         <?php
                         $no = 1;
-                        $query = "SELECT * FROM jabatan order by id desc";
+                        $query = "SELECT * FROM Anggota order by id desc";
                         $result = mysqli_query($koneksi, $query);
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                             <tr>
                                 <th scope="row"><?= $no++; ?></th>
-                                <td><?= $row['jabatan']; ?></td>
+                                <td><?= $row['Anggota']; ?></td>
                                 <td><?= $row['keterangan']; ?></td>
                                 <td>
-                                    <a href="index.php?page=jabatan/edit&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                    <a href="fungsi/hapus.php?jabatan=hapus&id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('Hapus Data Jabatan ?');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a>
+                                    <a href="index.php?page=Anggota/edit&id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="fungsi/hapus.php?Anggota=hapus&id=<?php echo $row['id']; ?>" onclick="javascript:return confirm('Hapus Data Jabatan ?');" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</a>
                                 </td>
                             </tr>
                         <?php
@@ -61,11 +61,11 @@
                             <h1 class="modal-title fs-5" id="exampleModalLabel">Form Jabatan</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="fungsi/tambah.php?jabatan=tambah" method="POST">
+                        <form action="fungsi/tambah.php?Anggota=tambah" method="POST">
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="recipient-name" class="col-form-label">Nama Jabatan:</label>
-                                    <input type="text" name="jabatan" class="form-control" id="recipient-name">
+                                    <input type="text" name="Anggota" class="form-control" id="recipient-name">
                                 </div>
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Keterangan:</label>

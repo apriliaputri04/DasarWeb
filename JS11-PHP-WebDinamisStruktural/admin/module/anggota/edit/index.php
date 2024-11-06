@@ -12,20 +12,6 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Anggota</h1>
             </div>
-            <div class="container-fluid">
-    <div class="row">
-        <?php
-        require 'admin/template/menu.php';
-        $id = $_GET['id'];
-        $query = "SELECT * FROM anggota a, jabatan j, user u WHERE a.jabatan_id = j.id AND a.user_id = u.id AND a.user_id = '$id'";
-        $result = mysqli_query($koneksi, $query);
-        $row = mysqli_fetch_assoc($result);
-        ?>
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Anggota</h1>
-            </div>
             <form action="fungsi/edit.php?anggota=edit" method="POST">
                 <div class="row">
                     <div class="col-sm-6">

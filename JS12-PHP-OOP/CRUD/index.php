@@ -1,9 +1,8 @@
 <?php
 require_once 'Crud.php';
-
 $crud = new Crud();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jabatan = $_POST['jabatan'];
     $keterangan = $_POST['keterangan'];
     $crud->create($jabatan, $keterangan);
@@ -14,7 +13,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete') {
     $crud->delete($id);
 }
 
-$tampil = $crud->read();
+$stamp11 = $crud->read();
 ?>
 
 <!DOCTYPE html>
@@ -27,36 +26,30 @@ $tampil = $crud->read();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
-<body>
-    <div class="container mt-5">
-        <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#tambahModal">Tambah</button>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Jabatan</th>
-                    <th>Keterangan</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($tampil as $show) {
-                    echo "<tr>";
-                    echo "<td>" . $show['id'] . "</td>";
-                    echo "<td>" . $show['jabatan'] . "</td>";
-                    echo "<td>" . $show['keterangan'] . "</td>";
-                    echo "<td>";
-                    echo "<a href='edit.php?id=" . $show['id'] . "' class='btn btn-primary btn-sm'>Edit</a> ";
-                    echo "<a href='index.php?action=delete&id=" . $show['id'] . "' class='btn btn-danger btn-sm'>Delete</a>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+<body class="container mt-5">
+    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#tambahModal">Tambah</button>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Jabatan</th>
+            <th>Keterangan</th>
+            <th>Aksi</th>
+        </tr>
 
+        <?php foreach ($stamp11 as $show) { ?>
+            <tr>
+                <td><?php echo $show['id']; ?></td>
+                <td><?php echo $show['jabatan']; ?></td>
+                <td><?php echo $show['keterangan']; ?></td>
+                <td>
+                    <a href="edit.php?id=<?php echo $show['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="index.php?action=delete&id=<?php echo $show['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+
+    <!-- Modal -->
     <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -69,11 +62,11 @@ $tampil = $crud->read();
                 <div class="modal-body">
                     <form method="post" action="">
                         <div class="form-group">
-                            <label for="name">Jabatan:</label>
+                            <label for="jabatan">Jabatan</label>
                             <input type="text" class="form-control" id="jabatan" name="jabatan" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Keterangan:</label>
+                            <label for="keterangan">Keterangan</label>
                             <textarea name="keterangan" class="form-control" id="keterangan" cols="30" rows="10" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Tambah</button>

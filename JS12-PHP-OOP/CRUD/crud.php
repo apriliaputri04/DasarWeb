@@ -1,4 +1,5 @@
 <?php
+require_once 'database.php';
 class Crud {
     private $db;
 
@@ -6,29 +7,34 @@ class Crud {
         $this->db = new Database();
     }
 
-    //Create
+    //create
     public function create($jabatan, $keterangan) {
         $query = "INSERT INTO jabatan (jabatan, keterangan) VALUES ('$jabatan', '$keterangan')";
         $result = $this->db->conn->query($query);
         return $result;
     }
+    
 
     //Read
     public function read() {
         $query = "SELECT * FROM jabatan";
         $result = $this->db->conn->query($query);
+
         $data = [];
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
+                    
             }
         }
         return $data;
+
     }
 
     //Read By Id
+    //Method readById
     public function readById($id) {
-        $query = "SELECT * FROM jabatan WHERE id='$id'";
+        $query = "SELECT * FROM jabatan WHERE id = $id"; // Ganti 'i' dengan 'id'
         $result = $this->db->conn->query($query);
         if ($result->num_rows == 1) {
             return $result->fetch_assoc();
@@ -37,16 +43,16 @@ class Crud {
         }
     }
 
-    //Update
+    //Method update
     public function update($id, $jabatan, $keterangan) {
-        $query = "UPDATE jabatan SET jabatan='$jabatan', keterangan='$keterangan' WHERE id='$id'";
+        $query = "UPDATE jabatan SET jabatan = '$jabatan', keterangan = '$keterangan' WHERE id = $id"; // Ganti 'i' dengan 'id'
         $result = $this->db->conn->query($query);
         return $result;
     }
 
-    //Delete
+    //Method delete
     public function delete($id) {
-        $query = "DELETE FROM jabatan WHERE id='$id'";
+        $query = "DELETE FROM jabatan WHERE id = $id"; // Ganti 'i' dengan 'id'
         $result = $this->db->conn->query($query);
         return $result;
     }

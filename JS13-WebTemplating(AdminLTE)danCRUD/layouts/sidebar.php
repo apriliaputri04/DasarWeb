@@ -6,7 +6,7 @@
                 alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Atsilah Amany</a>
+            <a href="#" class="d-block">APrilia Putri</a>
         </div>
     </div>
     <!-- SidebarSearch Form -->

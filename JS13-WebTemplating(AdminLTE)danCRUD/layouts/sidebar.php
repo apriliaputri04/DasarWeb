@@ -6,7 +6,7 @@
                 alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">APrilia Putri</a>
+            <a href="#" class="d-block">Aprilia Putri Anggraeni</a>
         </div>
     </div>
     <!-- SidebarSearch Form -->

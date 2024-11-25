@@ -1,10 +1,7 @@
 <?php
 require_once __DIR__ . '/../lib/Connection.php';
-
-// Ambil data kategori menggunakan fungsi
 $kategori = getKategori();
 ?>
-
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -20,7 +17,6 @@ $kategori = getKategori();
         </div>
     </div>
 </section>
-
 <!-- Main content -->
 <section class="content">
     <div class="card">
@@ -52,7 +48,6 @@ $kategori = getKategori();
         </div>
     </div>
 </section>
-
 <!-- Modal Form -->
 <div class="modal fade" id="form-data" style="display: none;" aria-hidden="true">
     <form action="action/bukuAction.php?act=save" method="post" id="form-tambah" enctype="multipart/form-data">
@@ -105,19 +100,17 @@ $kategori = getKategori();
         </div>
     </form>
 </div>
-
 <script>
     function tambahData() {
         $('#form-data').modal('show');
         $('#form-tambah').attr('action', 'action/bukuAction.php?act=save');
         $('#buku_kode').val('');
         $('#buku_nama').val('');
-        $('#kategori_id').val(''); // Sesuai ID dari select
+        $('#kategori_id').val('');
         $('#jumlah').val('');
         $('#deskripsi').val('');
         $('#gambar').val('');
     }
-
     function editData(id) {
         $.ajax({
             url: 'action/bukuAction.php?act=get&id=' + id,
@@ -130,13 +123,11 @@ $kategori = getKategori();
                 $('#buku_nama').val(data.buku_nama);
                 $('#kategori_id').val(data.kategori_id).trigger('change');
                 $('#jumlah').val(data.jumlah);
-                $('#deskripsi').val(data.deskripsi || ''); // Pastikan deskripsi tidak kosong
+                $('#deskripsi').val(data.deskripsi || '');
                 $('#gambar').val(data.gambar);
             }
         });
     }
-
-
     function deleteData(id) {
         if (confirm('Apakah anda yakin?')) {
             $.ajax({
@@ -153,7 +144,6 @@ $kategori = getKategori();
             });
         }
     }
-
     var tabelData;
     $(document).ready(function() {
         tabelData = $('#table-data').DataTable({

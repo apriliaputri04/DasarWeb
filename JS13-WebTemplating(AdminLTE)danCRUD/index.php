@@ -43,7 +43,7 @@ if ($session->get('is_login') !== true) {
       </a>
 
       <!-- Sidebar -->
-      <?php include('layouts/sidebar.php'); ?>/
+      <?php include('layouts/sidebar.php'); ?>
       <!-- /.sidebar -->
     </aside>
 
